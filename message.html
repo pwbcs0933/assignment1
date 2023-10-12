@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Your previous CSS styles here */
+
+/* Message page styling */
+.message {
+    text-align: center;
+    padding: 50px;
+}
+
+.message h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.message p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Center the content in the middle of the page */
+.message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+/* Navigation button styles */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: rgb(11, 11, 11); 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.navbar {
+    background-color: #3498db; /* Change background color to a shade of blue */
+    color: #fff;
+    padding: 10px 0;
+
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f1c40f; /* Change link color on hover to a shade of yellow */
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3498db; /* Change background color for mobile menu */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+/* Style all font awesome icons */
+.fa {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px; /* Added height property for maintaining proportions */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+    transform: scale(1.2);
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+
+    </style>
+</head>
+<body>
+</div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="nav-links">
+            <button class="button button2"><li><a href="index.html">Home</a></li></button>
+            <button class="button button2"><li><a href="stories.html">Stories</a></li></button>
+            <button class="button button2"><li><a href="destinations.html">Destination</a></li></button>
+            <button class="button button2"><li><a href="photos.html">Photo</a></li></button>
+            <button class="button button2"><li><a href="contact.html">Contact</a></li></button>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+</nav>
+
+    <section class="message">
+        <h1>Thank You for Your Message</h1>
+        <p>Your message has been successfully submitted. We will get back to you soon.</p>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+            </ul>
+            <div class="social-icons">
+              <a href="" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

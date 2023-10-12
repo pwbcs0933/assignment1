@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+ /* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define a common font family and background color */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation button styles */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: rgb(11, 11, 11); 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.navbar {
+    background-color: #3498db; /* Change background color to a shade of blue */
+    color: #fff;
+    padding: 10px 0;
+
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f1c40f; /* Change link color on hover to a shade of yellow */
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3498db; /* Change background color for mobile menu */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Style the contact section */
+.contact {
+  padding: 20px;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #cccccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.contact {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Set the form to expand to the full width */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%; /* Set the container to expand to the full width */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Set the form to expand to the full width */
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Set the input fields to expand to the full width */
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #f1c40f;
+}
+
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+/* Style all font awesome icons */
+.fa {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px; /* Added height property for maintaining proportions */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+    transform: scale(1.2);
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+    </style>
+</head>
+<body>
+</div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="nav-links">
+            <button class="button button2"><li><a href="/index.html">Home</a></li></button>
+            <button class="button button2"><li><a href="/stories.html">Stories</a></li></button>
+            <button class="button button2"><li><a href="/destinations.html">Destination</a></li></button>
+            <button class="button button2"><li><a href="/photos.html">Photo</a></li></button>
+            <button class="button button2"><li><a href="/contact.html">Contact</a></li></button>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+</nav>
+
+    <section class="contact">
+      <div class="container">
+        <form action="message.html">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            <option value="usa">Pakistan</option>
+            <option value="usa">India</option>
+            <option value="usa">AFG</option>
+          </select>
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+          <button type="submit">Submit</button>
+</form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+          <ul class="footer-links">
+          </ul>
+          <div class="social-icons">
+            <a href="" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+          </div>
+      </div>
+  </footer>
+</body>
+</html>

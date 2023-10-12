@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Travel Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        /* Header Styles */
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* Navigation button styles */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: rgb(11, 11, 11); 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.navbar {
+    background-color: #3498db; /* Change background color to a shade of blue */
+    color: #fff;
+    padding: 10px 0;
+
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f1c40f; /* Change link color on hover to a shade of yellow */
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3498db; /* Change background color for mobile menu */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Story Styles */
+.stories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    max-width: 1200px; /* Limit the maximum width of the stories section */
+    margin: 0 auto; /* Center the section horizontally */
+    padding: 20px;
+}
+
+.story {
+    width: calc(33.33% - 20px);
+    margin-right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    position: relative;
+    cursor: pointer;
+    flex: 1;
+    display: flex; /* Add display flex to the story container */
+    flex-direction: column; /* Stack content vertically */
+    max-height: 400px; /* Limit the maximum height of each story */
+}
+
+.story:last-child {
+    margin-right: 0;
+}
+
+.story:hover {
+    transform: scale(1.05);
+}
+
+.story img {
+    max-width: 100%;
+    max-height: 100%; /* Ensure the image never exceeds its container's height */
+    width: auto; /* Allow the image to resize proportionally based on its max-width and max-height */
+}
+
+.story h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.story p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.read-more:hover {
+    background-color: #f1c40f;
+}
+
+/* Full Description Styles (Initially Hidden) */
+.full-description {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: left;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+
+.description-content {
+    position: relative; /* Add relative positioning */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2; /* Set a higher z-index value than the description */
+}
+
+
+.close-button:hover {
+    background-color: #f1c40f;
+}
+
+/* Responsive Layout for Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .stories {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .story {
+        width: calc(50% - 10px); /* Display two stories per row on smaller screens */
+        max-height: 300px; /* Reduce the maximum height on smaller screens */
+    }
+
+    /* Add the following styles for the last story in the row to remove the right margin */
+    .story:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    /* Hide right margins for the last story in odd-numbered rows */
+    .story:nth-child(4n) {
+        margin-right: 0;
+    }
+}
+/* Adjust "full-description" styles as needed for readability */
+
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+/* Style all font awesome icons */
+.fa {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px; /* Added height property for maintaining proportions */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+    transform: scale(1.2);
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+    </style>
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <button class="button button2"><li><a href="index.html">Home</a></li></button>
+                <button class="button button2"><li><a href="stories.html">Stories</a></li></button>
+                <button class="button button2"><li><a href="destinations.html">Destination</a></li></button>
+                <button class="button button2"><li><a href="photos.html">Photo</a></li></button>
+                <button class="button button2"><li><a href="contact.html">Contact</a></li></button>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        </div>
+    </nav>
+
+    <section class="stories">
+        <div class="story">
+            <div class="story-content">
+                <img src="Paris.jpg" alt="Story 1 Image">
+                <h2>Paris</h2>
+                <p>#1 in World's Best Places to Visit for 2023</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="full-description">
+                <div class="description-content">
+                    <p>
+                        France's magnetic City of Light is a perennial tourist destination, drawing visitors with its iconic attractions, like the Eiffel Tower and the Louvre, and its unmistakable je ne sais quoi. Quaint cafes, trendy shopping districts and Haussmann architecture give Paris its timeless beauty. But the city's best asset is that you're likely to discover something new with each trip or season (read: Paris is always a good idea).
+                    </p>
+                    <a href="#" class="close-button">Close</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="story">
+            <div class="story-content">
+                <img src="the-beach-dinner.jpeg" alt="Story 1 Image">
+                <h2>Bora Bora</h2>
+                <p>#2 in World's Best Places to Visit for 2023</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="full-description">
+                <div class="description-content">
+                    <p>
+                        What this 12-square-mile French Polynesian island may lack in size it makes up for in sheer tropical beauty. Here, you'll find picturesque beaches, lush jungles and luxurious resorts set on surrounding islets. The island's extinct volcano, Mount Otemanu, makes for a great photo-op or challenging hike, and the friendly Bora Bora locals can help you catch a glimpse of the island's best sights during an off-road excursion.                    </p>
+                    <a href="#" class="close-button">Close</a>
+                </div>
+            </div>
+        </div>
+        <div class="story">
+            <div class="story-content">
+                <img src="glacier.jpg" alt="Story 1 Image">
+                <h2>Glacier National Park</h2>
+                <p>#3 in World's Best Places to Visit for 2023</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="full-description">
+                <div class="description-content">
+                    <p>
+                        Snow-capped peaks, alpine meadows and azure lakes are just a few reasons why Glacier National Park is one of America's most striking parks. There are more than 700 miles of hiking trails in this Montana crown jewel, plus 13 designated areas for camping. In the winter, travelers can enjoy snowshoeing and skiing, while during the summer vacationers can go swimming in Lake McDonald and whitewater rafting on Flathead River, among other popular activities.                    </p>
+                    <a href="#" class="close-button">Close</a>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <section class="stories">
+        <div class="story">
+            <div class="story-content">
+                <img src="Rome.webp" alt="Story 1 Image">
+                <h2>Rome</h2>
+                <p>#4 in World's Best Places to Visit for 2023</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="full-description">
+                <div class="description-content">
+                    <p>
+                        When you visit Italy's capital city, prepare to cross a few must-see landmarks – including the Colosseum, the Trevi Fountain and the Pantheon – off of your bucket list. Travelers can also see some of Italy's greatest treasures, including St. Peter's Basilica and the Sistine Chapel, in Vatican City. Escape the tourist crowds by taking a twilight stroll along the cobblestone streets of Trastevere, or head to Mercato Centrale Roma to sample local delicacies like pistachio gelato. Before leaving, peruse some of Rome's lesser-known museums, art galleries and boutiques, or head to Janiculum Hill for panoramic views of the city.                    </p>
+                    <a href="#" class="close-button">Close</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="story">
+            <div class="story-content">
+                <img src="Swiss_Alps.jpg" alt="Story 1 Image">
+                <h2>Swiss Alps</h2>
+                <p>#5 in World's Best Places to Visit for 2023</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="full-description">
+                <div class="description-content">
+                    <p>
+                        Snow-covered mountains, charming towns and flower-strewn meadows make the Swiss Alps a year-round fairy tale destination. Visit in the winter for world-class skiing (and après-ski fondue and drinks) in locales such as the exclusive St. Moritz and the picturesque Zermatt, home of the craggy Matterhorn. Opt for warmer months to hike through the verdant valleys of Swiss National Park or attend lively festivals in the foothill city of Montreux. Regardless of the time of year, no trip would be complete without a visit to the Jungfrau Region, where you can experience idyllic mountain villages like Grindelwald and Mürren or take the Jungfrau Railway to Europe's highest railway station.                    </p>
+                    <a href="#" class="close-button">Close</a>
+                </div>
+            </div>
+        </div>
+        <div class="story">
+            <div class="story-content">
+                <img src="maui.jpg" alt="Story 1 Image">
+                <h2>Maui</h2>
+                <p>#6 in World's Best Places to Visit for 2023</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="full-description">
+                <div class="description-content">
+                    <p>
+                        Whether you're driving along the Road to Hana, enjoying a bird's-eye view of Maui's lush coastline from a helicopter, snorkeling with sea turtles or simply relaxing on white or black sand beaches, you'll find that this Hawaiian island is unlike any other tropical destination. Don't miss a chance to visit Haleakala National Park, which is home to one of the world's largest dormant volcanic craters and boasts surreal sunrises. You should also attend a traditional luau for a dose of local culture and a taste of Hawaiian specialties like poi, poke and i'a fish.                    </p>
+                    <a href="#" class="close-button">Close</a>
+                </div>
+            </div>
+        </div>
+    </section>    
+    
+        <footer>
+            <div class="footer-content">
+                <ul class="footer-links">
+                </ul>
+                <div class="social-icons">
+                  <a href="" class="fa fa-facebook"></a>
+                  <a href="#" class="fa fa-twitter"></a>
+                </div>
+            </div>
+        </footer>
+
+    <Script>
+        // Get all "Read More" buttons, full descriptions, and close buttons
+const readMoreButtons = document.querySelectorAll('.read-more');
+const fullDescriptions = document.querySelectorAll('.full-description');
+const closeButtons = document.querySelectorAll('.close-button');
+
+// Add a click event listener to each "Read More" button
+readMoreButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Toggle the display of the full description
+        fullDescriptions[index].style.display = 'block';
+    });
+});
+
+// Add a click event listener to each close button
+closeButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Close the full description
+        fullDescriptions[index].style.display = 'none';
+    });
+});
+
+
+    </Script>
+</body>
+</html>

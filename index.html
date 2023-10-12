@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Your Travel Blog</title>
+    <style>
+         /* Reset some default styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Navigation button styles */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: rgb(11, 11, 11); 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.navbar {
+    background-color: #3498db; /* Change background color to a shade of blue */
+    color: #fff;
+    padding: 10px 0;
+
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f1c40f; /* Change link color on hover to a shade of yellow */
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3498db; /* Change background color for mobile menu */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
+section {
+    padding: 20px;
+}
+
+/* Featured story section */
+.featured-story {
+    background-image: url('featured-image.jpg'); /* Replace with your featured image URL */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.featured-story .featured-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background overlay */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.featured-story h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    opacity: 0; /* Initially set opacity to 0 for the animation */
+    animation: fadeIn 1.5s ease-in-out forwards; /* Apply the fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.featured-story p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.featured-story .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Add transform transition */
+}
+
+.featured-story .cta-button:hover {
+    background-color: #555; /* Change button background color on hover */
+    transform: scale(1.1); /* Apply zoom-in effect on hover */
+}
+
+
+/* Recent posts grid */
+.recent-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+.post:hover img {
+    transform: scale(1.1);
+}
+/* Image zoom animation */
+.post .post-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.post .post-image img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.post .post-image:hover img {
+    transform: scale(1.1);
+}
+/* Button overlay */
+.post-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Hide initially */
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1;
+}
+.post:hover .post-button {
+    display: block; /* Show on hover */
+}
+/* Cursor pointer for titles */
+.post h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.post p {
+    font-size: 16px;
+}
+
+.post a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+/* Style all font awesome icons */
+.fa {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px; /* Added height property for maintaining proportions */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+    transform: scale(1.2);
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="background">
+    <video autoplay muted loop playsinline>
+        <source src="background.mp4" type="video/mp4">
+    </video>
+</div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="nav-links">
+            <button class="button button2"><li><a href="index.html">Home</a></li></button>
+            <button class="button button2"><li><a href="stories.html">Stories</a></li></button>
+            <button class="button button2"><li><a href="destinations.html">Destination</a></li></button>
+            <button class="button button2"><li><a href="photos.html">Photo</a></li></button>
+            <button class="button button2"><li><a href="contact.html">Contact</a></li></button>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+</nav>
+
+<section class="featured-story">
+    <div class="featured-content">
+        <h1>Welcome to Your Travel Blog</h1>
+        <p>Explore the world through our adventures.</p>
+        <a href="stories.html" class="cta-button">Read Our Latest Story</a>
+    </div>
+</section>
+
+    <section class="recent-posts">
+        <div class="post">
+            <div class="post-image">
+                <img src="Pakistan.jpg" alt="Post 1 Image">
+                <a href="stories.html" class="post-button">Read More</a>
+            </div>
+            <h2>Pakistan</h2>
+            <p>Travel To Pakistan Now</p>
+        </div>
+        <!-- Example post 2 -->
+        <div class="post">
+            <div class="post-image">
+                <img src="Canada.jpg" alt="Post 1 Image">
+                <a href="stories.html" class="post-button">Read More</a>
+            </div>
+            <h2>Canada</h2>
+            <p>Travel To Canada Now</p>
+        </div>
+         
+    </section>
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+            </ul>
+            <div class="social-icons">
+              <a href="" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
+    </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+});
+
+    // Get all post titles
+    const postTitles = document.querySelectorAll('.post h2');
+
+    // Add click event listener to each title
+    postTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            // Get the link from the "Read More" button within the post
+            const readMoreButton = title.nextElementSibling;
+            const postLink = readMoreButton.getAttribute('href');
+            
+            // Navigate to the full post page
+            window.location.href = postLink;
+        });
+    });
+</script>
+
+</body>
+</html>

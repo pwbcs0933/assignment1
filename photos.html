@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Reset some default styling */
+body, ul, li, nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Navigation button styles */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: rgb(11, 11, 11); 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.navbar {
+    background-color: #3498db; /* Change background color to a shade of blue */
+    color: #fff;
+    padding: 10px 0;
+
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f1c40f; /* Change link color on hover to a shade of yellow */
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3498db; /* Change background color for mobile menu */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* Your previous CSS styles here */
+
+/* Lightbox styling */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-content {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Add CSS to make the photos responsive and center them in the gallery */
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo {
+    margin: 20px;
+    text-align: center;
+}
+
+.photo img {
+    max-width: 100%; /* Ensure the photo doesn't exceed its container width */
+    max-height: 300px; /* Set a maximum height for consistent sizing */
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.photo p {
+    margin: 10px 0;
+    font-size: 14px; /* Adjust the font size as needed */
+    color: #444; /* Adjust the text color as needed */
+    font-weight: bold; /* Add bold styling if desired */
+    font-family: "Berlin Sans FB Demi", sans-serif; /* Apply the custom font */
+}
+
+/* Your previous CSS styles here */
+
+/* Add CSS for download buttons */
+.download-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+/* Style all font awesome icons */
+.fa {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px; /* Added height property for maintaining proportions */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+    transform: scale(1.2);
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+    </style>
+</head>
+<body>
+</div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="nav-links">
+            <button class="button button2"><li><a href="index.html">Home</a></li></button>
+            <button class="button button2"><li><a href="stories.html">Stories</a></li></button>
+            <button class="button button2"><li><a href="destinations.html">Destination</a></li></button>
+            <button class="button button2"><li><a href="photos.html">Photo</a></li></button>
+            <button class="button button2"><li><a href="contact.html">Contact</a></li></button>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+</nav>
+
+<section class="photo-gallery">
+        <div class="photos">
+        <div class="photo">
+            <img src="Canada.jpg" alt="Photo 1">
+            <p>Canada</p>
+            <a href="Canada.jpg" download="photo1.jpg">
+                <button class="download-button">Download</button>
+            </a>
+        </div>
+        <div class="photo">
+            <img src="glacier.jpg" alt="Photo 2">
+            <p>Glacier</p>
+            <a href="glacier.jpg" download="photo2.jpg">
+                <button class="download-button">Download</button>
+            </a>
+        </div>
+        <div class="photo">
+            <img src="maui.jpg" alt="Photo 2">
+            <p>Maui</p>
+            <a href="maui.jpg" download="photo2.jpg">
+                <button class="download-button">Download</button>
+            </a>
+        </div>
+        <div class="photo">
+            <img src="Pakistan.jpg" alt="Photo 1">
+            <p>Pakistan</p>
+            <a href="Pakistan.jpg" download="photo1.jpg">
+                <button class="download-button">Download</button>
+            </a>
+        </div>
+    </div>
+    <div id="lightbox" class="lightbox">
+        <span class="close-button" id="close-button">X</span>
+        <img class="lightbox-content" id="lightbox-content">
+    </div>
+</section>
+<footer>
+    <div class="footer-content">
+        <ul class="footer-links">
+        </ul>
+        <div class="social-icons">
+          <a href="" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+        </div>
+    </div>
+</footer>
+    <script>
+        // JavaScript for the lightbox
+document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxContent = document.getElementById("lightbox-content");
+    const closeBtn = document.getElementById("close-button");
+
+    const photos = document.querySelectorAll(".photo img");
+
+    photos.forEach(photo => {
+        photo.addEventListener("click", function () {
+            lightbox.style.display = "block";
+            lightboxContent.src = this.src;
+        });
+    });
+
+    closeBtn.addEventListener("click", function () {
+        lightbox.style.display = "none";
+    });
+});
+
+    </script>
+</body>
+</html>

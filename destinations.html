@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Your Travel Blog</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Add CSS styles here for animations */
+        .destination {
+            transition: transform 0.2s;
+        }
+
+        .destination:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .destination {
+            width: calc(33.33% - 20px);
+            margin-right: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .destination:last-child {
+            margin-right: 0;
+        }
+
+        .destination img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .destination h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .destination p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .destination a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .destination a:hover {
+            background-color: #f1c40f;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+
+    <header>
+        <h1>Explore Our Featured Destinations</h1>
+        <a href="index.html">Home</a>
+    </header>
+    <style>
+        header a {
+  color: #fff; /* Text color for the link */
+  text-decoration: none; /* Remove underlines from the link */
+  margin: 10px; /* Add margin to the link */
+  font-weight: bold; /* Make the link text bold */
+  background-color: #007BFF; /* Background color for the link */
+  padding: 10px 20px; /* Add padding to the link */
+  border-radius: 5px; /* Add rounded corners to the link */
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+/* Style the "Home" link on hover */
+header a:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
+    </style>
+    <main>
+        <section class="destination">
+            <img src="maui.jpg" alt="Destination 1">
+            <h2>Maui</h2>
+            <p>Maui, known also as “The Valley Isle,” is the second largest Hawaiian island.</p>
+            <a href="https://www.travelandleisure.com/trip-ideas/island-vacations/beautiful-photos-of-maui">Read More</a>
+        </section>
+
+        <section class="destination">
+            <img src="Paris.jpg" alt="Destination 2">
+            <h2>Paris</h2>
+            <p>Paris Is One of the best place for traveling.</p>
+            <a href="https://www.travelandleisure.com/culture-design/paris-eiffel-tower-photos">Read More</a>
+        </section>
+        <section class="destination">
+            <img src="Pakistan.jpg" alt="Destination 2">
+            <h2>Pakistan</h2>
+            <p>Pakistan is One of the best place for tourism.</p>
+            <a href="https://www.tripoto.com/asia/trips/pictures-of-pakistan-no-media-will-ever-show-you-558209">Read More</a>
+        </section>
+        <section class="destination">
+            <img src="Canada.jpg" alt="Destination 2">
+            <h2>Canada</h2>
+            <p>Canada Is One of the best place for traveling.</p>
+            <a href="https://www.travelandleisure.com/beautiful-places-in-canada-7554665">Read More</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Muhammad Maaz</p>
+    </footer>
+</body>
+</html>
